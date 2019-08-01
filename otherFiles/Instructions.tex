@@ -1,0 +1,230 @@
+% S sample tex to show to how use the defined abbreviations/acronums in file "acronym.tex"
+% 
+% ------------------------------------------------------------------
+\def\baselinestretch{1}
+
+\chapter{Notes on how to use the Latex Dissertation template}
+
+\def\baselinestretch{1.66}
+
+%%% ----------------------------------------------------------------------
+This LATEX template was created by Dr. Wenjia Wang\footnote{Created in 2005 based on a thesis style file from Stanford University. 
+
+Previous versions: created in 2005 (v0), updated in 2010(v1) and 2012(v1.1).  
+	Major Revision on 06/08/2015-17/08/2015(v2): Added the function of generating the list of Abbreviations (you must follow the instructions carefully and exactly in order to produce a list of Abbreviations). 
+	Major revision on 22/11/2016(v3), added notes for how to use the Template.   
+	Latest update on 15/04/2019: Just updated the Instruction notes.  }
+with aim of helping Master students at the \gls{cmp}, the \gls{uea}, to write their dissertation with Latex.  %It has been developed and evolved from several early versions based on various sources as indicated in the Sample file. 
+% by adding an option of generating a list of Abbreviations. 
+
+This section gives some brief instructions on how to use it and you should read it carefully before attempting it.
+
+NOTE: you should use $TexStudio$ as your text editor and Latex compiler to make sure this Latex  Template working properly, although it may work with other text editors.
+ 
+ 
+Please let me know if you find any bugs or problems, although I may not have time to resolve them in time.
+ 
+ 
+\section{How to use this Latex Template}
+
+ %Read the brief notes below and in sample files to learn how to use this option in this template.  
+  
+ 
+ Brief Instructions:
+ 
+\subsection{Preparations: P1 to P4} 
+ 
+P1. Download the template package from the blackboard of Dissertation Module and
+Unzipped it to an intended working folder on your U drive, e.g. Dissertation.    
+
+P2. Start TexStudio and open ``DissertationTemplate4.tex" 
+
+Note: it is a tex file that (1) uses, i.e. includes all the other files, such as Abstract, Acknowledgement, and chapter files, which are written or edited separately with Latex, 
+(2) generates a pdf file of your dissertation as a whole.         
+ 
+P3. Change/replace/fill few places in this file to suit your need:
+ 		such as, Your course, Year, Dissertation title, your name, markers, etc.
+ 		
+P4. Save it with your new file name, e.g. ``Wang\_Dissertation2019.tex" 
+
+
+\subsection{Work on each latex file}
+		
+Then following steps below to work on each file to write your dissertation.    
+
+ 1. Write your abstract in a separate tex file and name it as Abstract.tex
+ 2. Write your acknowledgement in a separate tex file and name it as Acknowledgement.tex  
+    Note: Both Abstract.tex and Acknowledgement.tex files are already included in the style file.
+    So you must not change their names but only the contents.    
+
+ 3. write each chapter in a separate tex file and name them as, e.g. Ch1, Ch2, etc. 
+ and then use ''$\backslash$include\{...\}" to include them as shown in this example.
+ 
+New notes added on 06/08/2015
+
+4. If you wish to produce a list of abbreviations/acronyms 
+ that are used in your dissertation, you must read notes below. 
+
+% 4. Define abbreviations or acronyms
+% 	you can use the given sample file "acronyms.tex" 
+% 	to define your abbreviations or acronyms, and 
+% 	some examples are already defined in that file.
+% 	After you have defined them, (you can add any new items anytime you like), 
+% 	save it in the same folder as this "DissertationSample1.tex"
+% 	as it is included by using "include{acronyms}" in this file later.
+% 	Note: if you use any other file name, change it in "inlcude{yourFilename}". 
+%
+% 5. Using the defined abbreviations/acronyms
+% 
+%   In file "acronymNotes.tex", I give some notes and few examples 
+%   to explain and show how to use defined acrynoms in your tex file.  
+%
+% 6. Generate a List of Abbreviations(LOA)
+% 
+%  You must issue command "Makeglossaries" to produce few more auxiliary files 
+%   e.g. xxxx.acr, and/or .glo, and/or .gls, etc. in order to produce LOA 
+%   so, is you use TexStudio, Click "Tools" and choose "Makeglossaries"
+%
+% 7. Don't want to have a list of Abbreviations
+% 
+% Use command $\backslash$nolistofabbs, by uncomment it in later part  
+%  then LOA will not be generated and not appear in the TOC. 
+%  note: you may have to run "Build and View" twice to get the intended result.
+%        first run to remove/get the acutal list of abbreviation
+%		 second run to remove/get the list appearing on TOC.   
+% 
+5. Using footnote. (wjw added this note on 11/09/2015)
+ 
+ If you want to use footnotes in any chapters of your dissertation, 
+	you can use command $\backslash$foodnote\{foodnote text\} in where you want, for example 
+	\footnote{your footnote text: If you want to generate a list of Abbreviations, you must follow the instructions given here carefully and exactly, particularly using Command "Makeglossaries" in "Tools" before Compiling.} 
+	
+The footnotes are numbered automatically and continuously within a CHAPTER. 
+
+\section {Making Citations and Citation Styles}
+
+You are  required to use the Harvard style for citing references.
+
+Specifically, there are two sub-styles to be used in different situations.
+
+1. Use command $\backslash citep\{...\}$. 
+
+If the authors of a reference are NOT part of your sentence, e.g. ``A study (Wang, 2008) has been done to investigate the influence of some factors on the accuracy of an ensemble.", then use $\backslash$citep\{...\} in your Latex file, such as ``A study $\backslash$citep\{Wang08\} has been done...", it then produces the text as: 
+``A study \citep{Wang08} has been done......"
+
+2 Use command $\backslash citet\{...\}$.
+
+If the authors of a reference are part of your sentence, e.g. ``Wang (2008) studied the factors that can affect the performance of a machine learning ensemble.", then use $\backslash$citet\{Wang08\} studied ... . It then produces the text as: `` \citet{Wang08} studied ......" 
+  
+You can press function key ``F8" in TexStudio to compile bibliography, i.e. to pull all the cited references out from your Bibtex file and generate a bib file. The message shows if there is any error in this process.       
+
+\section{Creating Equations}
+
+You can write an equation by using $\backslash$begin\{equation\} write equation here $\backslash$ end\{equation\}. For example, 
+
+\begin{equation}
+y = a + b_1x_1 + b_2x_2
+\end{equation}
+
+If your equation is too long for a single line, instead of using the above environment,  
+use ``$\backslash$begin\{align\}" command to align an equation of multiple lines at a specified point. 
+Use $\backslash\backslash$ to specify a line break, and \& to indicate where  the lines should be aligned. 
+
+For example, the following equation is aligned at ``=". 
+
+\begin{align}
+f(x) &= (x+a)(x+b) \nonumber \\
+&= x^2 + (a+b)x + ab
+\end{align}
+
+The following equation is aligned at the left brace.  
+
+\begin{align}
+f(x) &= \pi \left\{ a + b_1x_1 + b_2x_2+ b_3x_3^4 + b_4{x_4}^3 + b_5x_5^2 \right.\nonumber\\
+&\qquad \left. {} + b_6x_6^5 + b_7x_7^2+ b_8x_8^3 + b_9{x_9}^3 \right\}
+\end{align}  
+
+Note: ``\emph{\{align\}}" must not be nested within ``\emph{\{equation\}}", it replaces ``\emph{\{equation\}}".
+
+If you do not want to automatically number an equation, use  \{equation*\} or  \{align*\}. For example, the following equation will not be numbered.   
+
+\begin{equation*}
+y = a + b_1x_1 + b_2x_2^2 + b_3x_3^3
+\end{equation*}
+
+\section{How to define and generate a list of Abbreviations}
+
+% text for testing abbreviations
+In the first paragraph I will show you how to use the acronyms defined in file ``acronyms.tex", which will be then listed in the \gls{loa} if they are used in your text.
+
+\subsection{Define abbreviations/acronyms}
+
+( Notes and sample files:
+
+ "acronymNotes.tex": brief introduction on how to make a LOA. 
+ 
+ "acronyms.tex": a sample file where you define abbreviations.
+)
+
+To define an abbreviation or acronym, open ``acronym.tex" file in any text editor, e.g. TeXstudio, you can see some abbreviations (or acronyms) already defined in it.
+
+You can simple use teh following command \emph{newacronym} to define an abbreviation/acronym 
+in the format: $\backslash$newacronym\{label\}\{name\}\{description\}
+
+For example:  
+% the acutal command: \newacronym{uk}{UK}{The United Kingdoms} 
+% but to show it in the complied text, 
+$\backslash$newacronym\{api\}\{API\}\{Application Programming Interface\}\} 
+ 
+\subsection{Use the defined abbreviations/Acronyms}
+
+You can use $\backslash$gls, or  $\backslash$Gls, Capital, to insert the abbreviation to any where you want in your tex file. 
+Or use $\backslash$glspl, or  $\backslash$Glspl for using their plural forms. 
+
+In the first time you use it, it will produce the full text of the abbreviation, followed by its abbreviation in (). After that, it will only produce the abbreviation.   
+
+For example,      
+$\backslash$Gls\{api\} 
+%\Gls{api}
+ will be shown as \gls{api}, i.e. 'Application Programming Interface (API)' 
+(without the quotation marks), 
+and will add a linked page number to where it uis used, e.g. '1' in this case, and will be shown in the \gls{loa}. 
+
+After that, $\backslash$Gls\{api\} will produce only the abbreviation, i.e. \gls{api}.
+
+\gls{uml}, \gls{svm}, \gls{kdd} are some other abbreviation examples I defined in ''acrynom.tex" file. Their plural format can be produced by using command: $\backslash$glspl\{\}.
+ e.g.  $\backslash$glspl\{uml\}, $\backslash$glspl\{svm\},  $\backslash$glspl\{kdd\}, which produce:   
+% the acutal commands are as follows: 
+    \glspl{uml}, \glspl{svm}, \glspl{kdd}.  
+
+
+\section{Compiling/Building your tex file}
+
+After you have defined your abbreviations or acronyms in file ``acronyms.tex", and use some of them in your text file of other Chapters, such as in this note file, by using the commands given above, you need to compile and build your integrating tex file (e.g. DissertationSample1.tex) to produce the intended files, e.g. pdf file, with following steps in TeXstudio. 
+
+1. Run ``Compile" or ``Build/View" by clicking their icon.
+(note: you may see a pdf file with your text, but it won't have the list of abbreviations.)
+
+2. Run ``Makeglossaries": 
+Click ``Tools" and then ``Commands", and choose ``Makeglossaries" to run it. 
+
+Ignore any warning message.
+
+Note: whenever you make any new entry to your ``acronym.tex" file, and/or use any abbreviation/acronym in your other tex file, you must do this step to update your generated .gls file.   
+
+3. Run ``Build and View" again. 
+This time the pdf file should contain the actual list of abbreviations after the list of Figures and teh title appears in the Table of Content(TOC).
+          
+
+Please note:
+
+(1) Only the used acronyms will appear in the list of Abbreviations.
+
+(2) notice the difference in using "gls{}" and "glspl{}" 
+
+%%%-----------------
+
+%\def\baselinestretch{1.66}
+%\medskip
+
+%%% ----------------------------------------------------------------------
